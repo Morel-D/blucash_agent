@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -32,64 +33,510 @@ class _AccueilState extends State<Accueil> {
           appBar: AppBar(
             automaticallyImplyLeading: false,
             // toolbarHeight: 100,
-            title:
-                Container(child: Image(image: AssetImage("assets/logo.png"))),
+            title: Container(
+                width: 120,
+                child: SvgPicture.asset(
+                  "assets/blucash.svg",
+                  color: Colors.white,
+                )),
             backgroundColor: darkBlue,
             elevation: 0,
             actions: [
               IconButton(
-                  onPressed: () {
-                    // await showPrintOutDialog(context)
-                    // showPrintOutDialog(context);
-                  },
+                  onPressed: () {},
                   icon: Icon(
-                    Icons.print,
+                    Icons.qr_code,
                     color: white,
                   )),
-              Builder(builder: (context) {
-                return IconButton(
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                    icon: Icon(
-                      Icons.account_circle,
-                      color: white,
-                      size: 35,
-                    ));
-              }),
+              IconButton(onPressed: () {}, icon: Icon(Icons.autorenew)),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.account_circle,
+                    color: white,
+                    size: 35,
+                  )),
             ],
           ),
-          body: Container(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Text("Accueil",
-                            style: lexendBlue.copyWith(fontSize: 25)),
-                        Row(
-                          children: [
-                            IconButton(
-                                onPressed: () {}, icon: Icon(Icons.print)),
-                            TextButton.icon(
+
+          /// Container wrapping all the widget
+
+          body: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Container(
+// upper components (Row)
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Accueil",
+                              style: lexendBlue.copyWith(fontSize: 30)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              SizedBox(
+                                width: 50,
+// height: 40,
+                                child: TextButton.icon(
+                                  onPressed: () {},
+                                  icon: Padding(
+                                    padding: const EdgeInsets.only(left: 6),
+                                    child: Icon(
+                                      Icons.print,
+                                      color: Colors.black,
+                                      size: 20,
+                                    ),
+                                  ),
+                                  label: Text(""),
+                                  style: IconButton.styleFrom(
+                                      side: BorderSide(
+                                          width: 0.5, color: Colors.black)),
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              TextButton.icon(
                                 onPressed: () {},
-                                icon: Icon(Icons.account_balance),
+                                icon: Icon(
+                                  Icons.account_balance,
+                                  color: Colors.black,
+                                  size: 20,
+                                ),
                                 label: Text(
                                   'Dépôt',
-                                  style: lexendBlue,
+                                  style: lexendBlack.copyWith(fontSize: 13),
+                                ),
+                                style: TextButton.styleFrom(
+                                    side: BorderSide(
+                                        width: 0.5, color: Colors.black)),
+                              ),
+                              SizedBox(width: 5),
+                              SizedBox(
+                                width: 50,
+// height: 40,
+                                child: TextButton.icon(
+                                  onPressed: () {},
+                                  icon: Padding(
+                                    padding: const EdgeInsets.only(left: 6),
+                                    child: Icon(
+                                      Icons.area_chart,
+                                      color: Colors.black,
+                                      size: 20,
+                                    ),
+                                  ),
+                                  label: Text(""),
+                                  style: IconButton.styleFrom(
+                                      side: BorderSide(
+                                          width: 0.5, color: Colors.black)),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Divider(),
+
+// middle content
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          // first row
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+// "Mon sold" sized box
+                              SizedBox(
+                                  height: Adaptive.h(15),
+                                  width: Adaptive.w(45),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 2, top: 6),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.money,
+                                            size: Adaptive.px(30),
+                                            color: darkBlue,
+                                          ),
+                                          Text(
+                                            "Mon Solde",
+                                            style: lexendBlack.copyWith(
+                                                fontSize: Adaptive.px(17)),
+                                          ),
+                                          Text("0 FCFA",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(15),
+                                                  fontWeight: FontWeight.bold))
+                                        ],
+                                      ),
+                                    ),
+                                    style: TextButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        side: BorderSide(
+                                            width: 0.5,
+                                            color: Color.fromARGB(
+                                                255, 223, 223, 223))),
+                                  )),
+// "Mes course" Sized box
+                              SizedBox(
+                                  height: Adaptive.h(15),
+                                  width: Adaptive.w(45),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 2, top: 6),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.directions_bike,
+                                            size: Adaptive.px(30),
+                                            color: darkBlue,
+                                          ),
+                                          Text(
+                                            "Mes Courses",
+                                            style: lexendBlack.copyWith(
+                                                fontSize: Adaptive.px(17)),
+                                          ),
+                                          Text("0 FCFA",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(15),
+                                                  fontWeight: FontWeight.bold))
+                                        ],
+                                      ),
+                                    ),
+                                    style: TextButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        side: BorderSide(
+                                            width: 0.5,
+                                            color: Color.fromARGB(
+                                                255, 223, 223, 223))),
+                                  )),
+                            ],
+                          ),
+                        ),
+// Second Row
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+// "En validation" Sized box
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: SizedBox(
+                                    height: Adaptive.h(15),
+                                    width: Adaptive.w(45),
+                                    child: TextButton(
+                                      onPressed: () {},
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 2, top: 6),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              Icons.scale_outlined,
+                                              size: Adaptive.px(30),
+                                              color: darkBlue,
+                                            ),
+                                            Text(
+                                              "En Validation",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(17)),
+                                            ),
+                                            Text("0 FCFA",
+                                                style: lexendBlack.copyWith(
+                                                    fontSize: Adaptive.px(15),
+                                                    fontWeight:
+                                                        FontWeight.bold))
+                                          ],
+                                        ),
+                                      ),
+                                      style: TextButton.styleFrom(
+                                          backgroundColor: Colors.transparent,
+                                          side: BorderSide(
+                                              width: 0.5,
+                                              color: Color.fromARGB(
+                                                  255, 223, 223, 223))),
+                                    )),
+                              ),
+                            ],
+                          ),
+                        ),
+
+// middle text
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10, top: 15, bottom: 15),
+                          child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.access_time_filled,
+                                  color: Colors.grey,
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 3, left: 2),
+                                  child: Text(
+                                    " Aujourd’hui",
+                                    style:
+                                        lexendGrey.copyWith(color: Colors.grey),
+                                  ),
+                                )
+                              ]),
+                        ),
+
+// Third row
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+// "Transaction" sized box
+                            SizedBox(
+                                height: Adaptive.h(15),
+                                width: Adaptive.w(45),
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 2, top: 6),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.swap_vert,
+                                          size: Adaptive.px(30),
+                                          color: darkBlue,
+                                        ),
+                                        Text(
+                                          "Transaction",
+                                          style: lexendBlack.copyWith(
+                                              fontSize: Adaptive.px(17)),
+                                        ),
+                                        Text("0 FCFA",
+                                            style: lexendBlack.copyWith(
+                                                fontSize: Adaptive.px(15),
+                                                fontWeight: FontWeight.bold))
+                                      ],
+                                    ),
+                                  ),
+                                  style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      side: BorderSide(
+                                          width: 0.5,
+                                          color: Color.fromARGB(
+                                              255, 223, 223, 223))),
                                 )),
-                            // IconButton(onPressed: (){}, icon: Icon(Icons.))
+// "Collect" Sized box
+                            SizedBox(
+                                height: Adaptive.h(15),
+                                width: Adaptive.w(45),
+                                child: TextButton(
+                                  onPressed: () {},
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 2, top: 6),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.arrow_circle_down,
+                                          size: Adaptive.px(30),
+                                          color: darkBlue,
+                                        ),
+                                        Text(
+                                          "Collect",
+                                          style: lexendBlack.copyWith(
+                                              fontSize: Adaptive.px(17)),
+                                        ),
+                                        Text("0 FCFA",
+                                            style: lexendBlack.copyWith(
+                                                fontSize: Adaptive.px(15),
+                                                fontWeight: FontWeight.bold))
+                                      ],
+                                    ),
+                                  ),
+                                  style: TextButton.styleFrom(
+                                      backgroundColor: Colors.transparent,
+                                      side: BorderSide(
+                                          width: 0.5,
+                                          color: Color.fromARGB(
+                                              255, 223, 223, 223))),
+                                )),
                           ],
-                        )
+                        ),
+
+// Fourth sized box
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+// "Retour" sized box
+                              SizedBox(
+                                  height: Adaptive.h(15),
+                                  width: Adaptive.w(45),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 2, top: 6),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.arrow_circle_right_outlined,
+                                            size: Adaptive.px(30),
+                                            color: darkBlue,
+                                          ),
+                                          Text(
+                                            "Retour",
+                                            style: lexendBlack.copyWith(
+                                                fontSize: Adaptive.px(17)),
+                                          ),
+                                          Text("0 FCFA",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(15),
+                                                  fontWeight: FontWeight.bold))
+                                        ],
+                                      ),
+                                    ),
+                                    style: TextButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        side: BorderSide(
+                                            width: 0.5,
+                                            color: Color.fromARGB(
+                                                255, 223, 223, 223))),
+                                  )),
+// "Versement" Sized box
+                              SizedBox(
+                                  height: Adaptive.h(15),
+                                  width: Adaptive.w(45),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 2, top: 6),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.arrow_circle_up,
+                                            size: Adaptive.px(30),
+                                            color: darkBlue,
+                                          ),
+                                          Text(
+                                            "Versement",
+                                            style: lexendBlack.copyWith(
+                                                fontSize: Adaptive.px(17)),
+                                          ),
+                                          Text("0 FCFA",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(15),
+                                                  fontWeight: FontWeight.bold))
+                                        ],
+                                      ),
+                                    ),
+                                    style: TextButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        side: BorderSide(
+                                            width: 0.5,
+                                            color: Color.fromARGB(
+                                                255, 223, 223, 223))),
+                                  )),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                )
-              ],
+// bottom text
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 15, bottom: 15),
+                    child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.swap_vert,
+                            color: Colors.grey,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 3, left: 2),
+                            child: Text(
+                              " Activités du jour",
+                              style: lexendGrey.copyWith(color: Colors.grey),
+                            ),
+                          )
+                        ]),
+                  ),
+
+// bottom Table
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.file_copy_outlined)),
+                          Text(
+                            'TYPE',
+                            style: lexendBlack.copyWith(
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text('MONTANT',
+                              style: lexendBlack.copyWith(
+                                  fontWeight: FontWeight.bold)),
+                          Text('UTILISATEUR',
+                              style: lexendBlack.copyWith(
+                                  fontWeight: FontWeight.bold)),
+                          Text('DATE',
+                              style: lexendBlack.copyWith(
+                                  fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                      Divider(),
+                      Container(
+                        height: 45,
+                        child: Center(
+                          child: Text('Aucune donnée disponible',
+                              style: lexendBlack.copyWith(fontSize: 16)),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(height: 20)
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
+
+// Bottom navBar
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -102,15 +549,28 @@ class _AccueilState extends State<Accueil> {
               ],
             ),
             child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.apps), label: 'Accueil'),
+                    icon: SizedBox(
+                        width: 35, child: SvgPicture.asset("assets/menu.svg")),
+                    label: ""),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.directions_run), label: 'Courses'),
+                    icon: SizedBox(
+                        width: 35, child: SvgPicture.asset("assets/run.svg")),
+                    label: ""),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.autorenew_sharp), label: 'Transaction'),
+                    icon: SizedBox(
+                        width: 35,
+                        child: SvgPicture.asset("assets/transaction.svg")),
+                    label: ""),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.settings), label: 'Paramètres'),
+                    icon: SizedBox(
+                        width: 35,
+                        child: SvgPicture.asset("assets/setting.svg")),
+                    label: ""),
               ],
               selectedItemColor: darkBlue,
               unselectedItemColor: Colors.grey,
