@@ -5,7 +5,6 @@ import 'package:blucash_agent/Shared/Statique.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
-
   @override
   State<Accueil> createState() => _AccueilState();
 }
@@ -30,12 +29,6 @@ class _AccueilState extends State<Accueil> {
 
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
-          drawer: drawBar,
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: darkBlue,
-            child: Icon(Icons.qr_code_2),
-          ),
           appBar: AppBar(
             automaticallyImplyLeading: false,
             // toolbarHeight: 100,
@@ -45,7 +38,10 @@ class _AccueilState extends State<Accueil> {
             elevation: 0,
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // await showPrintOutDialog(context)
+                    // showPrintOutDialog(context);
+                  },
                   icon: Icon(
                     Icons.print,
                     color: white,
@@ -63,288 +59,37 @@ class _AccueilState extends State<Accueil> {
               }),
             ],
           ),
-          body: Stack(children: [
-            Container(
-              color: darkBlue,
-              height: 200,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+          body: Container(
+            child: Column(
               children: [
-                Center(
-                    child: Column(
-                  children: [
-                    Text(
-                      "Mon Solde",
-                      style: lexendWhite.copyWith(
-                        fontSize: Adaptive.px(19),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    child: Row(
                       children: [
-                        Text(
-                          "0",
-                          style: lexendWhite.copyWith(
-                            fontSize: Adaptive.px(65),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: Text(
-                            " FCFA",
-                            style: lexendWhite.copyWith(
-                              fontSize: Adaptive.px(19),
-                            ),
-                          ),
-                        ),
+                        Text("Accueil",
+                            style: lexendBlue.copyWith(fontSize: 25)),
+                        Row(
+                          children: [
+                            IconButton(
+                                onPressed: () {}, icon: Icon(Icons.print)),
+                            TextButton.icon(
+                                onPressed: () {},
+                                icon: Icon(Icons.account_balance),
+                                label: Text(
+                                  'Dépôt',
+                                  style: lexendBlue,
+                                )),
+                            // IconButton(onPressed: (){}, icon: Icon(Icons.))
+                          ],
+                        )
                       ],
                     ),
-                    SizedBox(
-                      height: 33,
-                      width: 115,
-                      child: TextButton(
-                        onPressed: () async {},
-                        child: Text(
-                          "Movement",
-                          style: lexendWhite,
-                        ),
-                        style: TextButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            side: BorderSide(width: 1.0, color: white)),
-                      ),
-                    ),
-                  ],
-                )),
+                  ),
+                )
               ],
             ),
-            Positioned(
-              top: 170,
-              left: Adaptive.w(13),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // First row
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                          height: Adaptive.h(15),
-                          width: Adaptive.w(32),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.directions_bike,
-                                    size: Adaptive.h(5),
-                                    color: darkBlue,
-                                  ),
-                                  Text(
-                                    "Mes Courses",
-                                    style: lexendBlack.copyWith(
-                                        fontSize: Adaptive.h(1.5)),
-                                  ),
-                                  Text("0",
-                                      style: lexendBlack.copyWith(
-                                          fontSize: Adaptive.h(3)))
-                                ],
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                                backgroundColor: white,
-                                shadowColor: Color.fromARGB(103, 105, 105, 105),
-                                elevation: 3),
-                          )),
-                      SizedBox(width: 30),
-                      SizedBox(
-                          height: Adaptive.h(15),
-                          width: Adaptive.w(32),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.scale_outlined,
-                                    size: Adaptive.h(5),
-                                    color: darkBlue,
-                                  ),
-                                  Text(
-                                    "En Validation",
-                                    style: lexendBlack.copyWith(
-                                        fontSize: Adaptive.h(1.5)),
-                                  ),
-                                  Text("0",
-                                      style: lexendBlack.copyWith(
-                                          fontSize: Adaptive.h(3)))
-                                ],
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                                backgroundColor: white,
-                                shadowColor: Color.fromARGB(103, 105, 105, 105),
-                                elevation: 3),
-                          )),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Icon(
-                      Icons.schedule_rounded,
-                      color: grey,
-                    ),
-                    Text(
-                      " Aujourd’hui",
-                      style: lexendGrey,
-                    )
-                  ]),
-
-                  SizedBox(height: 15),
-
-                  // second row
-
-                  Row(
-                    children: [
-                      SizedBox(
-                          height: Adaptive.h(15),
-                          width: Adaptive.w(32),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.swap_vert,
-                                    size: Adaptive.h(5),
-                                    color: darkBlue,
-                                  ),
-                                  Text(
-                                    "Transaction",
-                                    style: lexendBlack.copyWith(
-                                        fontSize: Adaptive.h(1.5)),
-                                  ),
-                                  Text("0",
-                                      style: lexendBlack.copyWith(
-                                          fontSize: Adaptive.h(3)))
-                                ],
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                                backgroundColor: white,
-                                shadowColor: Color.fromARGB(103, 105, 105, 105),
-                                elevation: 3),
-                          )),
-                      SizedBox(width: 30),
-                      SizedBox(
-                          height: Adaptive.h(15),
-                          width: Adaptive.w(32),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.arrow_circle_down,
-                                    size: Adaptive.h(5),
-                                    color: darkBlue,
-                                  ),
-                                  Text(
-                                    "Collect",
-                                    style: lexendBlack.copyWith(
-                                        fontSize: Adaptive.h(1.5)),
-                                  ),
-                                  Text("0",
-                                      style: lexendBlack.copyWith(
-                                          fontSize: Adaptive.h(3)))
-                                ],
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                                backgroundColor: white,
-                                shadowColor: Color.fromARGB(103, 105, 105, 105),
-                                elevation: 3),
-                          )),
-                    ],
-                  ),
-
-                  SizedBox(height: 30),
-
-                  Row(
-                    children: [
-                      SizedBox(
-                          height: Adaptive.h(15),
-                          width: Adaptive.w(32),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.arrow_circle_right_outlined,
-                                    size: Adaptive.h(5),
-                                    color: darkBlue,
-                                  ),
-                                  Text(
-                                    "Retour",
-                                    style: lexendBlack.copyWith(
-                                        fontSize: Adaptive.h(1.5)),
-                                  ),
-                                  Text("0",
-                                      style: lexendBlack.copyWith(
-                                          fontSize: Adaptive.h(3)))
-                                ],
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                                backgroundColor: white,
-                                shadowColor: Color.fromARGB(103, 105, 105, 105),
-                                elevation: 3),
-                          )),
-                      SizedBox(width: 30),
-                      SizedBox(
-                          height: Adaptive.h(15),
-                          width: Adaptive.w(32),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.arrow_circle_up,
-                                    size: Adaptive.h(5),
-                                    color: darkBlue,
-                                  ),
-                                  Text(
-                                    "Versement",
-                                    style: lexendBlack.copyWith(
-                                        fontSize: Adaptive.h(1.5)),
-                                  ),
-                                  Text("0",
-                                      style: lexendBlack.copyWith(
-                                          fontSize: Adaptive.h(3)))
-                                ],
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                                backgroundColor: white,
-                                shadowColor: Color.fromARGB(103, 105, 105, 105),
-                                elevation: 3),
-                          )),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ]),
+          ),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(

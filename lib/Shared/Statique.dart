@@ -81,5 +81,16 @@ Widget drawBar = Drawer(
       ),
     ));
 
+// Text input field
 
-// 
+const formTextDecoration = InputDecoration(
+  fillColor: Colors.transparent,
+  filled: true,
+  hoverColor: Colors.transparent,
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Color.fromARGB(255, 185, 185, 185)),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.lightBlue),
+  ),
+);
