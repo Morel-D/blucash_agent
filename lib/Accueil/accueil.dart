@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:blucash_agent/Accueil/imprimer.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -66,7 +67,7 @@ class _AccueilState extends State<Accueil> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(17.0),
                     child: Container(
 // upper components (Row)
                       child: Row(
@@ -79,21 +80,27 @@ class _AccueilState extends State<Accueil> {
                             children: [
                               SizedBox(
                                 width: 50,
-// height: 40,
+// print the recite btn
                                 child: TextButton.icon(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Imprimer();
+                                        });
+                                  },
                                   icon: Padding(
                                     padding: const EdgeInsets.only(left: 6),
                                     child: Icon(
                                       Icons.print,
-                                      color: Colors.black,
+                                      color: grey,
                                       size: 20,
                                     ),
                                   ),
                                   label: Text(""),
                                   style: IconButton.styleFrom(
-                                      side: BorderSide(
-                                          width: 0.5, color: Colors.black)),
+                                      side:
+                                          BorderSide(width: 0.5, color: grey)),
                                 ),
                               ),
                               SizedBox(width: 5),
@@ -101,7 +108,7 @@ class _AccueilState extends State<Accueil> {
                                 onPressed: () {},
                                 icon: Icon(
                                   Icons.account_balance,
-                                  color: Colors.black,
+                                  color: grey,
                                   size: 20,
                                 ),
                                 label: Text(
@@ -109,27 +116,25 @@ class _AccueilState extends State<Accueil> {
                                   style: lexendBlack.copyWith(fontSize: 13),
                                 ),
                                 style: TextButton.styleFrom(
-                                    side: BorderSide(
-                                        width: 0.5, color: Colors.black)),
+                                    side: BorderSide(width: 0.5, color: grey)),
                               ),
                               SizedBox(width: 5),
                               SizedBox(
                                 width: 50,
-// height: 40,
                                 child: TextButton.icon(
                                   onPressed: () {},
                                   icon: Padding(
                                     padding: const EdgeInsets.only(left: 6),
                                     child: Icon(
                                       Icons.area_chart,
-                                      color: Colors.black,
+                                      color: grey,
                                       size: 20,
                                     ),
                                   ),
                                   label: Text(""),
                                   style: IconButton.styleFrom(
-                                      side: BorderSide(
-                                          width: 0.5, color: Colors.black)),
+                                      side:
+                                          BorderSide(width: 0.5, color: grey)),
                                 ),
                               )
                             ],
@@ -148,10 +153,10 @@ class _AccueilState extends State<Accueil> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              bottom: 15, left: 12, right: 12),
+                              bottom: 15, left: 15, right: 12),
 // first row
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
 // "Mon sold" sized box
                               SizedBox(
@@ -240,54 +245,51 @@ class _AccueilState extends State<Accueil> {
                         ),
 // Second Row
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 15, left: 5),
+                          padding: const EdgeInsets.only(bottom: 15, left: 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
 // "En validation" Sized box
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: SizedBox(
-                                    height: Adaptive.h(15),
-                                    width: Adaptive.w(45),
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      child: FittedBox(
-                                        fit: BoxFit.contain,
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 2, top: 6),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Icon(
-                                                Icons.scale_outlined,
-                                                size: Adaptive.px(30),
-                                                color: darkBlue,
-                                              ),
-                                              Text(
-                                                "En Validation",
+                              SizedBox(
+                                  height: Adaptive.h(15),
+                                  width: Adaptive.w(45),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    child: FittedBox(
+                                      fit: BoxFit.contain,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 2, top: 6),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              Icons.scale_outlined,
+                                              size: Adaptive.px(30),
+                                              color: darkBlue,
+                                            ),
+                                            Text(
+                                              "En Validation",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(17)),
+                                            ),
+                                            Text("0 FCFA",
                                                 style: lexendBlack.copyWith(
-                                                    fontSize: Adaptive.px(17)),
-                                              ),
-                                              Text("0 FCFA",
-                                                  style: lexendBlack.copyWith(
-                                                      fontSize: Adaptive.px(15),
-                                                      fontWeight:
-                                                          FontWeight.bold))
-                                            ],
-                                          ),
+                                                    fontSize: Adaptive.px(15),
+                                                    fontWeight:
+                                                        FontWeight.bold))
+                                          ],
                                         ),
                                       ),
-                                      style: TextButton.styleFrom(
-                                          backgroundColor: Colors.transparent,
-                                          side: BorderSide(
-                                              width: 0.5,
-                                              color: Color.fromARGB(
-                                                  255, 223, 223, 223))),
-                                    )),
-                              ),
+                                    ),
+                                    style: TextButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        side: BorderSide(
+                                            width: 0.5,
+                                            color: Color.fromARGB(
+                                                255, 223, 223, 223))),
+                                  )),
                             ],
                           ),
                         ),
@@ -320,7 +322,7 @@ class _AccueilState extends State<Accueil> {
                         Padding(
                           padding: const EdgeInsets.only(left: 12, right: 12),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // "Transaction" sized box
                               SizedBox(
@@ -414,7 +416,7 @@ class _AccueilState extends State<Accueil> {
                           padding: const EdgeInsets.only(
                               top: 15, left: 12, right: 12),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
 // "Retour" sized box
                               SizedBox(
@@ -592,7 +594,8 @@ class _AccueilState extends State<Accueil> {
                 BottomNavigationBarItem(
                     icon: SizedBox(
                         width: 35, child: SvgPicture.asset("assets/run.svg")),
-                    label: ""),
+                    label: "",
+                    backgroundColor: Color.fromARGB(255, 5, 17, 22)),
                 BottomNavigationBarItem(
                     icon: SizedBox(
                         width: 35,
@@ -604,7 +607,7 @@ class _AccueilState extends State<Accueil> {
                         child: SvgPicture.asset("assets/setting.svg")),
                     label: ""),
               ],
-              selectedItemColor: darkBlue,
+              // selectedItemColor: darkBlue,
               unselectedItemColor: Colors.grey,
               elevation: 12,
             ),
