@@ -4,6 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:blucash_agent/Accueil/imprimer.dart';
+import 'package:blucash_agent/Accueil/depot.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -50,13 +51,16 @@ class _AccueilState extends State<Accueil> {
                     color: white,
                   )),
               IconButton(onPressed: () {}, icon: Icon(Icons.autorenew)),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.account_circle,
-                    color: white,
-                    size: 35,
-                  )),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.account_circle,
+                      color: white,
+                      size: 35,
+                    )),
+              ),
             ],
           ),
 
@@ -105,7 +109,12 @@ class _AccueilState extends State<Accueil> {
                               ),
                               SizedBox(width: 5),
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Depot()));
+                                },
                                 icon: Icon(
                                   Icons.account_balance,
                                   color: grey,
@@ -143,7 +152,7 @@ class _AccueilState extends State<Accueil> {
                       ),
                     ),
                   ),
-                  Divider(),
+                  SizedBox(width: 320, child: Divider()),
 
 // middle content
 
@@ -160,7 +169,7 @@ class _AccueilState extends State<Accueil> {
                             children: [
 // "Mon sold" sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -168,7 +177,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 40),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -197,11 +206,14 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
 // "Mes course" Sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -209,7 +221,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 20),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -238,7 +250,10 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
                             ],
                           ),
@@ -251,7 +266,7 @@ class _AccueilState extends State<Accueil> {
                             children: [
 // "En validation" Sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -259,7 +274,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 20),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -288,7 +303,10 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
                             ],
                           ),
@@ -307,11 +325,13 @@ class _AccueilState extends State<Accueil> {
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.only(top: 3, left: 2),
+                                      const EdgeInsets.only(top: 1, left: 2),
                                   child: Text(
                                     " Aujourd’hui",
-                                    style:
-                                        lexendGrey.copyWith(color: Colors.grey),
+                                    style: lexendGrey.copyWith(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17),
                                   ),
                                 )
                               ]),
@@ -320,13 +340,13 @@ class _AccueilState extends State<Accueil> {
 // Third row
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 12, right: 12),
+                          padding: const EdgeInsets.only(left: 14, right: 12),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              // "Transaction" sized box
+// "Transaction" sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -334,7 +354,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 35),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -349,11 +369,12 @@ class _AccueilState extends State<Accueil> {
                                               style: lexendBlack.copyWith(
                                                   fontSize: Adaptive.px(17)),
                                             ),
-                                            Text("0 FCFA",
-                                                style: lexendBlack.copyWith(
-                                                    fontSize: Adaptive.px(15),
-                                                    fontWeight:
-                                                        FontWeight.bold))
+                                            Text(
+                                              "0 FCFA",
+                                              style: lexendBlack.copyWith(
+                                                  fontSize: Adaptive.px(15),
+                                                  fontWeight: FontWeight.bold),
+                                            )
                                           ],
                                         ),
                                       ),
@@ -363,11 +384,14 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
-                              // "Collect" Sized box
+// "Collect" Sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -375,7 +399,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 65),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -404,7 +428,10 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
                             ],
                           ),
@@ -420,7 +447,7 @@ class _AccueilState extends State<Accueil> {
                             children: [
 // "Retour" sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -428,7 +455,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 75),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -457,11 +484,14 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
 // "Versement" Sized box
                               SizedBox(
-                                  height: Adaptive.h(15),
+                                  height: Adaptive.h(14),
                                   width: Adaptive.w(45),
                                   child: TextButton(
                                     onPressed: () {},
@@ -469,7 +499,7 @@ class _AccueilState extends State<Accueil> {
                                       fit: BoxFit.contain,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 2, top: 6),
+                                            top: 6, right: 35),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -498,7 +528,10 @@ class _AccueilState extends State<Accueil> {
                                         side: BorderSide(
                                             width: 0.5,
                                             color: Color.fromARGB(
-                                                255, 223, 223, 223))),
+                                                255, 223, 223, 223)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(16))),
                                   )),
                             ],
                           ),
@@ -518,10 +551,13 @@ class _AccueilState extends State<Accueil> {
                             color: Colors.grey,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 3, left: 2),
+                            padding: const EdgeInsets.only(top: 1, left: 2),
                             child: Text(
                               " Activités du jour",
-                              style: lexendGrey.copyWith(color: Colors.grey),
+                              style: lexendGrey.copyWith(
+                                  color: Colors.grey,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
                             ),
                           )
                         ]),
