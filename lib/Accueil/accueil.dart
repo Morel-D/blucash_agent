@@ -5,6 +5,7 @@ import 'package:blucash_agent/Shared/Statique.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:blucash_agent/Accueil/imprimer.dart';
 import 'package:blucash_agent/Accueil/depot.dart';
+import 'package:blucash_agent/Accueil/movement.dart';
 
 class Accueil extends StatefulWidget {
   const Accueil({super.key});
@@ -131,7 +132,12 @@ class _AccueilState extends State<Accueil> {
                               SizedBox(
                                 width: 50,
                                 child: TextButton.icon(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Movement()));
+                                  },
                                   icon: Padding(
                                     padding: const EdgeInsets.only(left: 6),
                                     child: Icon(

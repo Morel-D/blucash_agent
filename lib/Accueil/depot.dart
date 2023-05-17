@@ -50,6 +50,7 @@ class _DepotState extends State<Depot> {
                   style: lexendWhite,
                 ))
           ],
+          elevation: 0,
         ),
         // the body
         body: SingleChildScrollView(
@@ -129,7 +130,7 @@ class _DepotState extends State<Depot> {
 // the textfield title
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
-                    child: Text("Recu de la transaction",
+                    child: Text("Récu de la transaction",
                         style:
                             lexendBlack.copyWith(fontWeight: FontWeight.bold)),
                   ),
@@ -181,7 +182,7 @@ class _DepotState extends State<Depot> {
                     ),
                   ),
 
-                  Divider(height: 30),
+                  SizedBox(width: 320, child: Divider()),
 
                   Padding(
                     padding: EdgeInsets.only(top: 8, bottom: 8),
@@ -242,42 +243,45 @@ class _DepotState extends State<Depot> {
                     ),
                   ),
 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            'MONTANT',
-                            style: lexendBlack.copyWith(
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text('BANQUE',
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              'MONTANT',
                               style: lexendBlack.copyWith(
-                                  fontWeight: FontWeight.bold)),
-                          Text('STATUT',
-                              style: lexendBlack.copyWith(
-                                  fontWeight: FontWeight.bold)),
-                          Text('CONTROLEUR',
-                              style: lexendBlack.copyWith(
-                                  fontWeight: FontWeight.bold)),
-                          Text('DATE/HEURE',
-                              style: lexendBlack.copyWith(
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Divider(),
-                      Container(
-                        height: 45,
-                        child: Center(
-                          child: Text('Aucune donnée disponible',
-                              style: lexendBlack.copyWith(fontSize: 16)),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text('BANQUE',
+                                style: lexendBlack.copyWith(
+                                    fontWeight: FontWeight.bold)),
+                            Text('STATUT',
+                                style: lexendBlack.copyWith(
+                                    fontWeight: FontWeight.bold)),
+                            Text('CONTROLEUR',
+                                style: lexendBlack.copyWith(
+                                    fontWeight: FontWeight.bold)),
+                            Text('DATE/HEURE',
+                                style: lexendBlack.copyWith(
+                                    fontWeight: FontWeight.bold)),
+                          ],
                         ),
-                      ),
-                      Divider(),
-                      SizedBox(height: 20)
-                    ],
+                        Divider(),
+                        Container(
+                          height: 45,
+                          child: Center(
+                            child: Text('Aucune donnée disponible',
+                                style: lexendBlack.copyWith(fontSize: 16)),
+                          ),
+                        ),
+                        Divider(),
+                        SizedBox(height: 20)
+                      ],
+                    ),
                   ),
                 ],
               ),
