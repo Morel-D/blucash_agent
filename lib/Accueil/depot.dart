@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -30,6 +31,10 @@ class _DepotState extends State<Depot> {
     var lexendGrey = GoogleFonts.lexend(color: Color(0xFF212529));
 
     var dropdownValue = "0";
+
+    TextEditingController _timeRange = TextEditingController();
+
+    _timeRange.text = "05/17/2023 - 05/17/2023";
 
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
@@ -71,16 +76,26 @@ class _DepotState extends State<Depot> {
                         borderRadius: BorderRadius.circular(5),
                         color: Color(0xFFFFF3CD),
                       ),
-                      height: 120,
+                      height: 80,
                       width: 250,
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Center(
-                          child: Text(
-                            "Aucun établissement n'est disponible pour le moment, prière de contactez votre administration pour plus d'informations.",
-                            style: lexendBlack.copyWith(
-                                fontSize: Adaptive.sp(15.5),
-                                color: Color(0xFF886419)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 15),
+                                child: Icon(Icons.warning,
+                                    color: Color(0xFF886419)),
+                              ),
+                              Text(
+                                "Aucun établissement n'est disponible pour le \n moment, prière de contactez votre \n administration pour plus d'informations.",
+                                style: lexendBlack.copyWith(
+                                    fontSize: Adaptive.sp(15.5),
+                                    color: Color(0xFF886419)),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -89,24 +104,27 @@ class _DepotState extends State<Depot> {
 // Dropdown textfield
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16),
-                    child: DropdownButtonFormField(
-                      decoration: formTextDecoration.copyWith(
-                          hintText: "Sélectionnez l'établissement"),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownValue = newValue!;
-                        });
-                      },
-                      items: <String>['1', '2', '3', '4']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        );
-                      }).toList(),
+                    child: SizedBox(
+                      height: 40,
+                      child: DropdownButtonFormField(
+                        decoration: formTextDecoration.copyWith(
+                            hintText: "Sélectionnez l'établissement"),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownValue = newValue!;
+                          });
+                        },
+                        items: <String>['1', '2', '3', '4']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(
+                              value,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
 // The textfield title
@@ -121,12 +139,12 @@ class _DepotState extends State<Depot> {
                   ),
 // The textfield
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: TextField(
-                      decoration:
-                          formTextDecoration.copyWith(hintText: "Montant"),
-                    ),
-                  ),
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: SizedBox(
+                          height: 40,
+                          child: CupertinoTextField(
+                            placeholder: "Montant",
+                          ))),
 // the textfield title
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
@@ -137,39 +155,19 @@ class _DepotState extends State<Depot> {
 // The row containing the upload btn & the textfield
                   Padding(
                     padding: const EdgeInsets.only(bottom: 14),
-                    child: Row(
-                      children: [
-// The upload btn in the row
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: SizedBox(
-                            height: 50,
-                            width: 140,
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Choisir un fichier',
-                                style: lexendWhite,
-                              ),
-                              style: TextButton.styleFrom(
-                                  backgroundColor: darkBlue),
-                            ),
-                          ),
-                        ),
-// The textfield in the row
-                        Padding(
-                          padding: const EdgeInsets.only(left: 7, bottom: 8),
-                          child: SizedBox(
-                            height: 49,
-                            width: 320,
-                            child: TextField(
-                              decoration: formTextDecoration.copyWith(
-                                  suffixIcon: Icon(Icons.close)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: SizedBox(
+                            height: 40,
+                            child: CupertinoTextField(
+                              placeholder: "Choisir un fichier",
+                              suffix: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.file_upload,
+                                    color: Colors.grey,
+                                  )),
+                            ))),
                   ),
 // The validation btn
                   SizedBox(
@@ -211,34 +209,36 @@ class _DepotState extends State<Depot> {
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Row(
                       children: [
-                        Container(
-                          // width: 290,
-                          decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(5),
-                              border:
-                                  Border.all(width: 0.5, color: Colors.grey)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: Text('05/17/2023 - 05/17/2023'),
+                        SizedBox(
+                          height: 40,
+                          width: 250,
+                          child: CupertinoTextField(
+                            readOnly: true,
+                            controller: _timeRange,
+                            suffix: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.calendar_month,
+                                  color: Colors.grey,
+                                )),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 7),
-                          child: SizedBox(
-                            height: 45,
-                            width: 140,
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Modifier la date',
-                                style: lexendWhite,
-                              ),
-                              style: TextButton.styleFrom(
-                                  backgroundColor: darkBlue),
-                            ),
-                          ),
-                        ),
+                        )
+                        // Padding(
+                        //   padding: const EdgeInsets.only(left: 7),
+                        //   child: SizedBox(
+                        //     height: 50,
+                        //     width: 140,
+                        //     child: TextButton(
+                        //       onPressed: () {},
+                        //       child: Text(
+                        //         'Modifier la date',
+                        //         style: lexendWhite,
+                        //       ),
+                        //       style: TextButton.styleFrom(
+                        //           backgroundColor: darkBlue),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -254,20 +254,25 @@ class _DepotState extends State<Depot> {
                             Text(
                               'MONTANT',
                               style: lexendBlack.copyWith(
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Adaptive.sp(12)),
                             ),
                             Text('BANQUE',
                                 style: lexendBlack.copyWith(
-                                    fontWeight: FontWeight.bold)),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: Adaptive.sp(12))),
                             Text('STATUT',
                                 style: lexendBlack.copyWith(
-                                    fontWeight: FontWeight.bold)),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: Adaptive.sp(12))),
                             Text('CONTROLEUR',
                                 style: lexendBlack.copyWith(
-                                    fontWeight: FontWeight.bold)),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: Adaptive.sp(12))),
                             Text('DATE/HEURE',
                                 style: lexendBlack.copyWith(
-                                    fontWeight: FontWeight.bold)),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: Adaptive.sp(12))),
                           ],
                         ),
                         Divider(),
@@ -279,7 +284,7 @@ class _DepotState extends State<Depot> {
                           ),
                         ),
                         Divider(),
-                        SizedBox(height: 20)
+                        SizedBox(height: 20),
                       ],
                     ),
                   ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
@@ -44,14 +45,14 @@ class _ImprimerState extends State<Imprimer> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 25, bottom: 12),
+                padding: const EdgeInsets.only(top: 15, bottom: 9),
                 child: Center(
                     child: Text("Ajouter une imprimante",
                         style: lexendBlue.copyWith(fontSize: 16))),
               ),
               Divider(),
               Padding(
-                padding: const EdgeInsets.all(22.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -63,18 +64,22 @@ class _ImprimerState extends State<Imprimer> {
                         borderRadius: BorderRadius.circular(5),
                         color: Color.fromARGB(255, 214, 229, 255),
                       ),
-                      height: 132,
+                      height: 110,
                       width: 250,
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Icon(Icons.warning, color: darkBlue),
-                            Text(
-                              'Ouvrez l’application Bluprint et authentifiez  vous en utilisant le code  ci-dessous. Une  fois authentifie ce dernier vous servira  d’assistance d’impression.',
-                              style: lexendBlack.copyWith(
-                                  fontSize: Adaptive.sp(14.5), color: darkBlue),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: Text(
+                                'Ouvrez l’application Bluprint et \n authentifiez  vous en utilisant le \n code  ci-dessous. Une  fois \n authentifie ce dernier vous \n servira  d’assistance d’impression.',
+                                style: lexendBlack.copyWith(
+                                    fontSize: Adaptive.sp(14.5),
+                                    color: darkBlue),
+                              ),
                             ),
                           ],
                         ),
@@ -84,20 +89,17 @@ class _ImprimerState extends State<Imprimer> {
                       padding: const EdgeInsets.only(top: 12, bottom: 5),
                       child: SizedBox(
                         height: 40,
-                        child: TextFormField(
+                        child: CupertinoTextField(
                           readOnly: true,
+                          suffix: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.copy,
+                                color: Colors.grey,
+                                size: 17,
+                              )),
                           controller: _bluCode,
-                          decoration: formTextDecoration.copyWith(
-                            suffixIcon: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.copy,
-                                  size: 17,
-                                )),
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 23),
-                          ),
-                          style: TextStyle(fontSize: 13),
+                          style: TextStyle(fontSize: 15),
                         ),
                       ),
                     ),
@@ -118,7 +120,7 @@ class _ImprimerState extends State<Imprimer> {
                             ),
                             style: TextButton.styleFrom(
                                 backgroundColor: darkBlue))),
-                    Divider(height: 20),
+                    Divider(),
                     Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
