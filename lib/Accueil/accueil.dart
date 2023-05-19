@@ -25,7 +25,6 @@ class _AccueilState extends State<Accueil> {
     Color white = Colors.white;
 
     // font familly
-
     var lexendWhite = GoogleFonts.lexend(color: Colors.white);
     var lexendBlack = GoogleFonts.lexend(color: Colors.black);
     var lexendBlue = GoogleFonts.lexend(color: Color(0xFF113b7f));
@@ -50,8 +49,14 @@ class _AccueilState extends State<Accueil> {
                   icon: Icon(
                     Icons.qr_code,
                     color: white,
+                    size: 25,
                   )),
-              IconButton(onPressed: () {}, icon: Icon(Icons.autorenew)),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.autorenew,
+                    size: 25,
+                  )),
               Padding(
                 padding: const EdgeInsets.only(right: 12),
                 child: IconButton(
@@ -59,7 +64,7 @@ class _AccueilState extends State<Accueil> {
                     icon: Icon(
                       Icons.account_circle,
                       color: white,
-                      size: 35,
+                      size: 30,
                     )),
               ),
             ],
@@ -616,7 +621,7 @@ class _AccueilState extends State<Accueil> {
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+                  topRight: Radius.circular(10), topLeft: Radius.circular(30)),
               boxShadow: [
                 BoxShadow(
                     color: Color.fromARGB(50, 0, 0, 0),

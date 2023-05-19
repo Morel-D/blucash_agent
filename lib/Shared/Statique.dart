@@ -88,7 +88,7 @@ const formTextDecoration = InputDecoration(
   filled: true,
   hoverColor: Colors.transparent,
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Color.fromARGB(255, 185, 185, 185)),
+    borderSide: BorderSide(color: Color.fromARGB(117, 185, 185, 185)),
   ),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(color: Colors.lightBlue),

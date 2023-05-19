@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
+import 'package:flutter/cupertino.dart';
 
 class Movement extends StatefulWidget {
   const Movement({super.key});
@@ -11,12 +12,17 @@ class Movement extends StatefulWidget {
 }
 
 class _MovementState extends State<Movement> {
+  TextEditingController _timeRange = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    _timeRange.text = "05/17/2023 - 05/17/2023";
+
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Mouvement du solde', style: TextStyle(color: white)),
+          title: Text('Mouvement du solde',
+              style: TextStyle(color: white, fontSize: 13)),
           backgroundColor: darkBlue,
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.autorenew)),
@@ -32,6 +38,11 @@ class _MovementState extends State<Movement> {
                 ))
           ],
           elevation: 0,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios_new_rounded)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -64,33 +75,20 @@ class _MovementState extends State<Movement> {
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Row(
                     children: [
-                      Container(
-                        // width: 290,
-                        decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(width: 0.5, color: Colors.grey)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15),
-                          child: Text('05/17/2023 - 05/17/2023'),
+                      SizedBox(
+                        height: 40,
+                        width: 250,
+                        child: CupertinoTextField(
+                          readOnly: true,
+                          controller: _timeRange,
+                          suffix: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.calendar_month,
+                                color: Colors.grey,
+                              )),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 7),
-                        child: SizedBox(
-                          height: 45,
-                          width: 140,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Modifier la date',
-                              style: lexendWhite,
-                            ),
-                            style:
-                                TextButton.styleFrom(backgroundColor: darkBlue),
-                          ),
-                        ),
-                      ),
+                      )
                     ],
                   ),
                 ),

@@ -56,6 +56,11 @@ class _DepotState extends State<Depot> {
                 ))
           ],
           elevation: 0,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios_new_rounded)),
         ),
         // the body
         body: SingleChildScrollView(
@@ -76,7 +81,7 @@ class _DepotState extends State<Depot> {
                         borderRadius: BorderRadius.circular(5),
                         color: Color(0xFFFFF3CD),
                       ),
-                      height: 80,
+                      height: Adaptive.h(12),
                       width: 250,
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -90,7 +95,7 @@ class _DepotState extends State<Depot> {
                                     color: Color(0xFF886419)),
                               ),
                               Text(
-                                "Aucun établissement n'est disponible pour le \n moment, prière de contactez votre \n administration pour plus d'informations.",
+                                "Aucun établissement n'est disponible \n pour le  moment, prière de contactez \n votre  administration pour \n plus d'informations.",
                                 style: lexendBlack.copyWith(
                                     fontSize: Adaptive.sp(15.5),
                                     color: Color(0xFF886419)),
@@ -160,6 +165,7 @@ class _DepotState extends State<Depot> {
                         child: SizedBox(
                             height: 40,
                             child: CupertinoTextField(
+                              readOnly: true,
                               placeholder: "Choisir un fichier",
                               suffix: IconButton(
                                   onPressed: () {},
@@ -171,7 +177,7 @@ class _DepotState extends State<Depot> {
                   ),
 // The validation btn
                   SizedBox(
-                    width: 160,
+                    width: 100,
                     height: 40,
                     child: TextButton(
                       onPressed: () {},
@@ -223,22 +229,6 @@ class _DepotState extends State<Depot> {
                                 )),
                           ),
                         )
-                        // Padding(
-                        //   padding: const EdgeInsets.only(left: 7),
-                        //   child: SizedBox(
-                        //     height: 50,
-                        //     width: 140,
-                        //     child: TextButton(
-                        //       onPressed: () {},
-                        //       child: Text(
-                        //         'Modifier la date',
-                        //         style: lexendWhite,
-                        //       ),
-                        //       style: TextButton.styleFrom(
-                        //           backgroundColor: darkBlue),
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
