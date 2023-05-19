@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // Color code
 Color darkBlue = Color(0xFF113b7f);
@@ -93,4 +94,32 @@ const formTextDecoration = InputDecoration(
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(color: Colors.lightBlue),
   ),
+);
+
+// navigation bar
+
+Widget bottomNavigation = BottomNavigationBar(
+  type: BottomNavigationBarType.fixed,
+  showSelectedLabels: false,
+  showUnselectedLabels: false,
+  items: <BottomNavigationBarItem>[
+    BottomNavigationBarItem(
+        icon: SizedBox(width: 35, child: SvgPicture.asset("assets/menu.svg")),
+        label: ""),
+    BottomNavigationBarItem(
+        icon: SizedBox(width: 35, child: SvgPicture.asset("assets/run.svg")),
+        label: "",
+        backgroundColor: Color.fromARGB(255, 5, 17, 22)),
+    BottomNavigationBarItem(
+        icon: SizedBox(
+            width: 35, child: SvgPicture.asset("assets/transaction.svg")),
+        label: ""),
+    BottomNavigationBarItem(
+        icon:
+            SizedBox(width: 35, child: SvgPicture.asset("assets/setting.svg")),
+        label: ""),
+  ],
+  // selectedItemColor: darkBlue,
+  unselectedItemColor: Colors.grey,
+  elevation: 12,
 );

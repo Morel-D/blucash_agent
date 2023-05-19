@@ -82,9 +82,9 @@ class _DepotState extends State<Depot> {
                         color: Color(0xFFFFF3CD),
                       ),
                       height: Adaptive.h(12),
-                      width: 250,
+                      width: 150,
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(17.0),
                         child: Center(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
