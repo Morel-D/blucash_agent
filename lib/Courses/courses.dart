@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:blucash_agent/Courses/boite_de_dialogue.dart';
 
 class Courses extends StatefulWidget {
   const Courses({super.key});
@@ -62,55 +63,167 @@ class _CoursesState extends State<Courses> {
           ],
         ),
         body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(17.0),
-                  child: Container(
-// upper components (Row)
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Courses",
-                            style: lexendBlue.copyWith(fontSize: 25)),
-                        SizedBox(
-                          height: 40,
-                          width: 120,
-                          child: TextButton.icon(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.add,
-                              color: grey,
+          child: Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(17.0),
+                    child: Container(
+                      // upper components (Row)
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Courses",
+                              style: lexendBlue.copyWith(
+                                  fontSize: Adaptive.sp(20))),
+                          SizedBox(
+                            height: 35,
+                            width: 110,
+                            child: TextButton.icon(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.add,
+                                color: grey,
+                                size: 20,
+                              ),
+                              label: Text(
+                                'Ajouter',
+                                style: lexendBlack.copyWith(fontSize: 15),
+                              ),
+                              style: TextButton.styleFrom(
+                                  side: BorderSide(width: 0.5, color: grey)),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  // Divider
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25, right: 25),
+                    child: Divider(),
+                  ),
+                  // search bar
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 10, left: 25, right: 25),
+                    child: SizedBox(
+                        width: Adaptive.w(90),
+                        height: 35,
+                        child: CupertinoTextField(
+                          placeholder: "Tirez par nom",
+                          suffix: Padding(
+                            padding: const EdgeInsets.only(right: 12),
+                            child: Icon(
+                              Icons.search,
+                              color: Colors.grey,
                               size: 20,
                             ),
-                            label: Text(
-                              'Ajouter',
-                              style: lexendBlack.copyWith(fontSize: 15),
+                          ),
+                        )),
+                  ),
+                  //cards
+
+                  Padding(
+                    padding: const EdgeInsets.all(19.8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 12),
+                                      child: CircleAvatar(
+                                          radius: Adaptive.sp(20),
+                                          backgroundImage:
+                                              AssetImage("assets/user1.jpg")),
+                                    ),
+                                    Text('Sandrine ADAMA',
+                                        style: lexendBlack.copyWith(
+                                            fontSize: Adaptive.sp(15))),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: darkBlue,
+                                        )),
+                                    IconButton(
+                                        onPressed: () {
+                                          showCupertinoDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return Boite();
+                                              });
+                                        },
+                                        icon: Icon(
+                                          Icons.info,
+                                          color: darkBlue,
+                                        ))
+                                  ],
+                                )
+                              ],
                             ),
-                            style: TextButton.styleFrom(
-                                side: BorderSide(width: 0.5, color: grey)),
+                          ),
+                        ),
+                        Divider(),
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 12),
+                                      child: CircleAvatar(
+                                          radius: Adaptive.sp(20),
+                                          backgroundImage:
+                                              AssetImage("assets/user2.jpg")),
+                                    ),
+                                    Text('Junior Prom',
+                                        style: lexendBlack.copyWith(
+                                            fontSize: Adaptive.sp(15))),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: darkBlue,
+                                        )),
+                                    IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.info,
+                                          color: darkBlue,
+                                        ))
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         )
                       ],
                     ),
-                  ),
-                ),
-                SizedBox(
-                    width: Adaptive.w(90),
-                    height: 30,
-                    child: CupertinoTextField(
-                      placeholder: "Tirez par nom",
-                      suffix: Padding(
-                        padding: const EdgeInsets.only(right: 12),
-                        child: Icon(
-                          Icons.search,
-                          color: Colors.grey,
-                          size: 20,
-                        ),
-                      ),
-                    ))
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
