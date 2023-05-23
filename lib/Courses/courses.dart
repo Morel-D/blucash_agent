@@ -6,6 +6,7 @@ import 'package:blucash_agent/Shared/Statique.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:blucash_agent/Courses/boite_de_dialogue.dart';
 import 'package:blucash_agent/Courses/ajouter.dart';
+import 'package:blucash_agent/Courses/operation.dart';
 
 class Courses extends StatefulWidget {
   const Courses({super.key});
@@ -163,7 +164,13 @@ class _CoursesState extends State<Courses> {
                                 Row(
                                   children: [
                                     IconButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Operation()));
+                                        },
                                         icon: Icon(
                                           Icons.add,
                                           color: darkBlue,
