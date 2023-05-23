@@ -170,7 +170,7 @@ class _DepotState extends State<Depot> {
                               suffix: IconButton(
                                   onPressed: () {},
                                   icon: Icon(
-                                    Icons.file_upload,
+                                    Icons.upload_file,
                                     color: Colors.grey,
                                   )),
                             ))),

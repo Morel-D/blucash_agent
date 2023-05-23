@@ -5,6 +5,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:blucash_agent/Courses/boite_de_dialogue.dart';
+import 'package:blucash_agent/Courses/ajouter.dart';
 
 class Courses extends StatefulWidget {
   const Courses({super.key});
@@ -32,6 +33,14 @@ class _CoursesState extends State<Courses> {
 
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Ajouter()));
+          },
+          child: Icon(Icons.add),
+          backgroundColor: darkBlue,
+        ),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           // toolbarHeight: 100,
@@ -79,52 +88,50 @@ class _CoursesState extends State<Courses> {
                           Text("Courses",
                               style: lexendBlue.copyWith(
                                   fontSize: Adaptive.sp(20))),
-                          SizedBox(
-                            height: 35,
-                            width: 110,
-                            child: TextButton.icon(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.add,
-                                color: grey,
-                                size: 20,
-                              ),
-                              label: Text(
-                                'Ajouter',
-                                style: lexendBlack.copyWith(fontSize: 15),
-                              ),
-                              style: TextButton.styleFrom(
-                                  side: BorderSide(width: 0.5, color: grey)),
-                            ),
-                          )
+                          // SizedBox(
+                          //   height: 30,
+                          //   width: 120,
+                          //   child: TextButton.icon(
+                          //     onPressed: () {},
+                          //     icon: Icon(
+                          //       Icons.add,
+                          //       color: white,
+                          //       size: 20,
+                          //     ),
+                          //     label: Text(
+                          //       'Ajouter',
+                          //       style: lexendWhite.copyWith(fontSize: 15),
+                          //     ),
+                          //     style: TextButton.styleFrom(
+                          //         backgroundColor: darkBlue),
+                          //   ),
+                          // )
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, left: 25, right: 25),
+                            child: SizedBox(
+                                width: Adaptive.w(52),
+                                height: 35,
+                                child: CupertinoTextField(
+                                  placeholder: "Tirez par nom",
+                                  suffix: Padding(
+                                    padding: const EdgeInsets.only(right: 12),
+                                    child: Icon(
+                                      Icons.search,
+                                      color: Colors.grey,
+                                      size: 20,
+                                    ),
+                                  ),
+                                )),
+                          ),
                         ],
                       ),
                     ),
                   ),
                   // Divider
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25, right: 25),
-                    child: Divider(),
-                  ),
+
                   // search bar
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10, left: 25, right: 25),
-                    child: SizedBox(
-                        width: Adaptive.w(90),
-                        height: 35,
-                        child: CupertinoTextField(
-                          placeholder: "Tirez par nom",
-                          suffix: Padding(
-                            padding: const EdgeInsets.only(right: 12),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.grey,
-                              size: 20,
-                            ),
-                          ),
-                        )),
-                  ),
+
                   //cards
 
                   Padding(
@@ -132,6 +139,7 @@ class _CoursesState extends State<Courses> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Divider(),
                         Container(
                           child: Padding(
                             padding: const EdgeInsets.all(14.0),
@@ -149,7 +157,7 @@ class _CoursesState extends State<Courses> {
                                     ),
                                     Text('Sandrine ADAMA',
                                         style: lexendBlack.copyWith(
-                                            fontSize: Adaptive.sp(15))),
+                                            fontSize: Adaptive.sp(17))),
                                   ],
                                 ),
                                 Row(
@@ -196,7 +204,7 @@ class _CoursesState extends State<Courses> {
                                     ),
                                     Text('Junior Prom',
                                         style: lexendBlack.copyWith(
-                                            fontSize: Adaptive.sp(15))),
+                                            fontSize: Adaptive.sp(17))),
                                   ],
                                 ),
                                 Row(
