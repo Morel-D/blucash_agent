@@ -35,6 +35,9 @@ class _AjouterState extends State<Ajouter> {
   var val = "";
   bool switchValue = false;
 
+  double _currentSliderValue = 0.0;
+  String? _sliderStatus;
+
   @override
   Widget build(BuildContext context) {
     _dateRange.text = "12/02/2023";
@@ -628,6 +631,41 @@ class _AjouterState extends State<Ajouter> {
                           ),
                           onPressed: () {},
                           color: grey,
+                        ),
+                        SizedBox(height: 5),
+                        CupertinoSlider(
+                          key: const Key('slider'),
+                          value: _currentSliderValue,
+                          // This allows the slider to jump between divisions.
+                          // If null, the slide movement is continuous.
+                          divisions: 5,
+                          // The maximum slider value
+                          max: 100,
+                          activeColor: darkBlue,
+                          thumbColor: darkBlue,
+                          // This is called when sliding is started.
+                          onChangeStart: (double value) {
+                            setState(() {
+                              _sliderStatus = 'Sliding';
+                            });
+                          },
+                          // This is called when sliding has ended.
+                          onChangeEnd: (double value) {
+                            setState(() {
+                              _sliderStatus = 'Finished sliding';
+                            });
+                          },
+                          // This is called when slider value is changed.
+                          onChanged: (double value) {
+                            setState(() {
+                              _currentSliderValue = value;
+                            });
+                          },
+                        ),
+                        Text(
+                          "Glissez et positioner l'image",
+                          style: lexendBlack.copyWith(
+                              color: Colors.grey, fontWeight: FontWeight.bold),
                         )
                       ],
                     ),
