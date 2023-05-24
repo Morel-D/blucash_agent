@@ -31,9 +31,8 @@ class _OperationState extends State<Operation> {
     var lexendBlue = GoogleFonts.lexend(color: Color(0xFF113b7f));
     var lexendGrey = GoogleFonts.lexend(color: Color(0xFF212529));
 
-    List<String> tabs = ["Collect", "Retour"];
-    int current = 0;
-    var dropdownValue = "0";
+    var colectValue = 1;
+    var retourValue = 2;
 
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
@@ -52,19 +51,6 @@ class _OperationState extends State<Operation> {
                       color: Colors.white,
                     )),
               )
-              // TextButton.icon(
-              //     onPressed: () {},
-              //     icon: Icon(
-              //       Icons.money,
-              //       color: white,
-              //     ),
-              //     label: Padding(
-              //       padding: const EdgeInsets.only(right: 15),
-              //       child: Text(
-              //         'Soldes',
-              //         style: lexendWhite,
-              //       ),
-              //     )),
             ],
             elevation: 0,
             backgroundColor: darkBlue,
@@ -117,18 +103,42 @@ class _OperationState extends State<Operation> {
                   Divider(),
                   SizedBox(height: 15),
 // tabs
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 30),
-                    child: Center(
-                      child: Text(
-                        "Collect",
-                        style: lexendBlack.copyWith(fontSize: Adaptive.sp(18)),
-                      ),
-                    ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          width: 130,
+                          height: 40,
+                          decoration: BoxDecoration(color: darkBlue),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Collect',
+                                style: lexendWhite,
+                              ))),
+                      Container(
+                          width: 130,
+                          height: 40,
+                          decoration: BoxDecoration(color: darkBlue),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Retour',
+                                style: lexendWhite,
+                              ))),
+                    ],
                   ),
 
+                  Column(
+                    children: [
+                      Text("1"),
+                      Text("2"),
+                    ],
+                  )
+
                   /// Starts here
-                  retourTab
+                  // retourTab
 
                   /// ends here
                 ],
