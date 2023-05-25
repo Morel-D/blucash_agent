@@ -14,6 +14,23 @@ class Operation extends StatefulWidget {
   State<Operation> createState() => _OperationState();
 }
 
+// bool _tabs = true;
+int _tabVisibility = 1;
+
+void _collectTab() {
+  _tabVisibility = 1;
+  setState(() {
+    _tabVisibility = 1;
+  });
+}
+
+void _retourTab() {
+  _tabVisibility = 2;
+  setState(() {
+    _tabVisibility = 2;
+  });
+}
+
 class _OperationState extends State<Operation> {
   @override
   Widget build(BuildContext context) {
@@ -30,9 +47,6 @@ class _OperationState extends State<Operation> {
     var lexendBlack = GoogleFonts.lexend(color: Colors.black);
     var lexendBlue = GoogleFonts.lexend(color: Color(0xFF113b7f));
     var lexendGrey = GoogleFonts.lexend(color: Color(0xFF212529));
-
-    var colectValue = 1;
-    var retourValue = 2;
 
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
@@ -112,7 +126,10 @@ class _OperationState extends State<Operation> {
                           height: 40,
                           decoration: BoxDecoration(color: darkBlue),
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _collectTab();
+                                print(_tabVisibility);
+                              },
                               child: Text(
                                 'Collect',
                                 style: lexendWhite,
@@ -122,7 +139,10 @@ class _OperationState extends State<Operation> {
                           height: 40,
                           decoration: BoxDecoration(color: darkBlue),
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                _retourTab();
+                                print(_tabVisibility);
+                              },
                               child: Text(
                                 'Retour',
                                 style: lexendWhite,
@@ -130,15 +150,11 @@ class _OperationState extends State<Operation> {
                     ],
                   ),
 
-                  Column(
-                    children: [
-                      Text("1"),
-                      Text("2"),
-                    ],
-                  )
-
                   /// Starts here
-                  // retourTab
+                  Padding(
+                    padding: EdgeInsets.only(top: 17),
+                    child: _tabVisibility == 1 ? collectTab : retourTab,
+                  ),
 
                   /// ends here
                 ],
