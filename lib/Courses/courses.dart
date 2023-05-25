@@ -89,24 +89,6 @@ class _CoursesState extends State<Courses> {
                           Text("Courses",
                               style: lexendBlue.copyWith(
                                   fontSize: Adaptive.sp(20))),
-                          // SizedBox(
-                          //   height: 30,
-                          //   width: 120,
-                          //   child: TextButton.icon(
-                          //     onPressed: () {},
-                          //     icon: Icon(
-                          //       Icons.add,
-                          //       color: white,
-                          //       size: 20,
-                          //     ),
-                          //     label: Text(
-                          //       'Ajouter',
-                          //       style: lexendWhite.copyWith(fontSize: 15),
-                          //     ),
-                          //     style: TextButton.styleFrom(
-                          //         backgroundColor: darkBlue),
-                          //   ),
-                          // )
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 10, left: 25, right: 25),
