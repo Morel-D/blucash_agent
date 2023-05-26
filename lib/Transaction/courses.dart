@@ -91,11 +91,17 @@ Widget coursesTab = Column(
       ),
     ),
 
-    Padding(
-      padding: const EdgeInsets.symmetric(vertical: 17),
-      child: Text("Total : 0 FCFA",
-          style: lexendBlack.copyWith(
-              fontSize: Adaptive.sp(17), fontWeight: FontWeight.bold)),
+    Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 17),
+          child: Text("Total : 0 FCFA",
+              style: lexendBlack.copyWith(
+                  fontSize: Adaptive.sp(17), fontWeight: FontWeight.bold)),
+        ),
+      ],
     ),
   ],
 );

@@ -6,6 +6,7 @@ import 'package:blucash_agent/Accueil/movement.dart';
 import 'package:blucash_agent/wrapper.dart';
 import 'package:blucash_agent/Courses/courses.dart';
 import 'package:blucash_agent/Transaction/transaction.dart';
+import 'package:blucash_agent/Paramètre/parametre.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {'/accueil': (context) => Accueil()},
-        home: Transaction());
+        home: Parametre());
   }
 }

@@ -4,19 +4,18 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:blucash_agent/Shared/Statique.dart';
 
-import 'package:blucash_agent/Transaction/courses.dart';
-import 'package:blucash_agent/Transaction/administration.dart';
+import 'package:blucash_agent/Paramètre/profile.dart';
 
-class Transaction extends StatefulWidget {
-  const Transaction({super.key});
+class Parametre extends StatefulWidget {
+  const Parametre({super.key});
 
   @override
-  State<Transaction> createState() => _TransactionState();
+  State<Parametre> createState() => _ParametreState();
 }
 
-class _TransactionState extends State<Transaction> {
-  // Color code
+class _ParametreState extends State<Parametre> {
   Color darkBlue = Color(0xFF113b7f);
   Color lightRed = Color(0xFFCE2835);
   Color lightBlue = Color(0xFF49BAEB);
@@ -30,12 +29,10 @@ class _TransactionState extends State<Transaction> {
   var lexendBlue = GoogleFonts.lexend(color: Color(0xFF113b7f));
   var lexendGrey = GoogleFonts.lexend(color: Color(0xFF212529));
 
-  TextEditingController _timeRange = TextEditingController();
+  var dropdownValue = "0";
 
   @override
   Widget build(BuildContext context) {
-    _timeRange.text = "05/17/2023 - 05/17/2023";
-
     return ResponsiveSizer(builder: (context, Orientation, DeviceType) {
       return Scaffold(
         appBar: AppBar(
@@ -75,7 +72,7 @@ class _TransactionState extends State<Transaction> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Transactions",
+                  Text("Paramètres",
                       style: lexendBlue.copyWith(
                         fontSize: Adaptive.sp(23),
                       )),
@@ -93,7 +90,7 @@ class _TransactionState extends State<Transaction> {
                                 child: TextButton(
                                     onPressed: () {},
                                     child: Text(
-                                      'Courses',
+                                      'Profile',
                                       style: lexendBlue,
                                     ))),
                             Container(
@@ -109,16 +106,16 @@ class _TransactionState extends State<Transaction> {
                             child: TextButton(
                                 onPressed: () {},
                                 child: Text(
-                                  'Administartion',
+                                  'Sécurité',
                                   style:
                                       lexendBlue.copyWith(color: Colors.grey),
                                 ))),
                       ],
                     ),
                   ),
-
-                  coursesTab
-                  // administartionTab
+// Starts here
+                  profileTab
+// Profile
                 ],
               ),
             ),
