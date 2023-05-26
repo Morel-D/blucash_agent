@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:blucash_agent/Shared/Statique.dart';
 
 import 'package:blucash_agent/Paramètre/profile.dart';
+import 'package:blucash_agent/Paramètre/securite.dart';
 
 class Parametre extends StatefulWidget {
   const Parametre({super.key});
