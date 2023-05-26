@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:blucash_agent/Transaction/transaction.dart';
+import 'package:blucash_agent/Paramètre/parametre.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({super.key});
@@ -19,7 +20,12 @@ class _WrapperState extends State<Wrapper> {
 
   int _currentIndex = 0;
 
-  final List<Widget> _children = [Accueil(), Courses(), Transaction()];
+  final List<Widget> _children = [
+    Accueil(),
+    Courses(),
+    Transaction(),
+    Parametre()
+  ];
 
   void onTabTapped(int index) {
     setState(() {

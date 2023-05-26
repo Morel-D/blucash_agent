@@ -118,36 +118,41 @@ class _OperationState extends State<Operation> {
                   SizedBox(height: 15),
 // tabs
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          width: 130,
-                          height: 40,
-                          decoration: BoxDecoration(color: darkBlue),
-                          child: TextButton(
-                              onPressed: () {
-                                _collectTab();
-                                print(_tabVisibility);
-                              },
-                              child: Text(
-                                'Collect',
-                                style: lexendWhite,
-                              ))),
-                      Container(
-                          width: 130,
-                          height: 40,
-                          decoration: BoxDecoration(color: darkBlue),
-                          child: TextButton(
-                              onPressed: () {
-                                _retourTab();
-                                print(_tabVisibility);
-                              },
-                              child: Text(
-                                'Retour',
-                                style: lexendWhite,
-                              ))),
-                    ],
+                  Padding(
+                    padding: EdgeInsets.only(top: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                                width: 130,
+                                height: 40,
+                                child: TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Collect',
+                                      style: lexendBlue,
+                                    ))),
+                            Container(
+                              color: darkBlue,
+                              height: 2,
+                              width: 130,
+                            )
+                          ],
+                        ),
+                        Container(
+                            width: 130,
+                            height: 40,
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Retour',
+                                  style:
+                                      lexendBlue.copyWith(color: Colors.grey),
+                                ))),
+                      ],
+                    ),
                   ),
 
                   /// Starts here
